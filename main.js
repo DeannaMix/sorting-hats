@@ -52,8 +52,12 @@ const whatHouse = () => {
 
 const whatName = () => {
   const name = document.getElementById("input-student").value;
-  studentNames.push({ name: name, house: houses[whatHouse()] });
+  studentNames.push({ name: name, house: houses[whatHouse()]});
   document.querySelector("#studentForm").reset();
+
+  if (document.getElementById("input-student").value.length == 0) {
+    alert("empty");
+  }
 };
 
 const buildCard = () => {
@@ -72,12 +76,11 @@ const buildCard = () => {
 
 const deleteStudent = (e) => {
   const buttonType = e.target.type;
-  const expel = e.target.id
+  const expel = e.target.id;
 
   if (buttonType === "button") {
-      studentNames.splice(expel, 1)
-      buildCard()
-    console.log("Deley");
+    studentNames.splice(expel, 1);
+    buildCard();
   }
 };
 
